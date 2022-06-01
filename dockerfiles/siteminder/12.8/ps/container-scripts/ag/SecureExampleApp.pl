@@ -20,7 +20,7 @@ use Netegrity::PolicyMgtAPI;
 
 $adminName          = 'siteminder';
 $adminPwd           = 'siteminder';
-$agentIP            = '127.0.0.1';
+$agentIP            = 'host.docker.internal';
 $agentSecret        = 'secret';
 
 $userdir_namespace  = 'LDAP:';
@@ -33,7 +33,7 @@ $username           = 'jsmith';     # user to authenticate for protected resourc
 $userpwd            = 'password';   # user password (Basic Authentication)
 
 $userdir_namespace  = 'LDAP:';
-$userdir_server     = '127.0.0.1';  # IP Address if LDAP, Data Source Name if ODBC
+$userdir_server     = 'host.docker.internal';  # IP Address if LDAP, Data Source Name if ODBC
 $user_lookup_string = 'cn=admin';  # Example: ou=People or name=jdoe
 
 #

@@ -34,6 +34,10 @@ ENV AG_ZIP=ag-12.8-sp05-linux-x86-64.zip \
 #
 # Creation of User, Directories and Installation of OS packages
 # ----------------------------------------------------------------
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum update -y
 RUN yum install -y which unzip rng-tools  java-1.8.0-openjdk-devel ksh openldap-clients openssh-server xauth
 RUN groupadd smuser && \
     useradd smuser -g smuser

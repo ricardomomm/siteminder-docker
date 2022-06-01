@@ -1,4 +1,4 @@
-FROM atricore/sm-ps:12.8
+FROM registry.docker.internal:50000/sm-ps:12.8
 #
 ENV PS_ZIP=ps-12.8-sp05-linux-x86-64.zip \
     ADMINUI_PRE_REQ_ZIP=adminui-pre-req-12.8-sp05-linux-x86-64.zip \

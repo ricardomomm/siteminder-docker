@@ -16,6 +16,10 @@ ENV SCRIPT_DIR=${INSTALL_TEMP}/dockertools
 #
 # Creation of User, Directories and Installation of OS packages
 # ----------------------------------------------------------------
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum update -y
 RUN yum install -y which unzip rng-tools java-1.8.0-openjdk-devel ksh openldap-clients openssh-server openssh-clients rsync tmux xauth libnsl
 RUN groupadd smuser && \
     useradd smuser -g smuser

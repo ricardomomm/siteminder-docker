@@ -3,7 +3,7 @@ services:
   dx:
     build:
       context: ./dockerfiles/cadir/14.1.00
-    image: atricore/sm-dx:14.1.00-d
+    image: registry.docker.internal:50000/sm-dx:14.1.00-d
     hostname: dx
     networks:
       - sm
@@ -15,7 +15,7 @@ services:
   ps:
     build:
       context: ./dockerfiles/siteminder/12.8/ps-d
-    image: atricore/sm-ps:12.8-d
+    image: registry.docker.internal:50000/sm-ps:12.8-d
     hostname: ps
     networks:
       - sm
@@ -33,12 +33,13 @@ services:
   ag:
     build:
       context: ./dockerfiles/siteminder/12.8/ag
-    image: atricore/sm-ag:12.8-d
+    image: registry.docker.internal:50000/sm-ag:12.8-d
     hostname: ag
     ports:
       - "3022:22"
       - "9090:8080"
       - "9191:8181"
+      - "9192:8443"
     depends_on:
         - ps
     stdin_open: true
@@ -50,7 +51,7 @@ services:
   app:
     build:
       context: ./dockerfiles/apps/resty
-    image: atricore/sm-app
+    image: registry.docker.internal:50000/sm-app
     hostname: app
     networks:
       - sm
@@ -63,7 +64,7 @@ services:
   ansible:
     build:
       context: ./dockerfiles/ansible
-    image: atricore/sm-ansible:12.8-d
+    image: registry.docker.internal:50000/sm-ansible:12.8-d
     hostname: ansible
     networks:
       - sm
